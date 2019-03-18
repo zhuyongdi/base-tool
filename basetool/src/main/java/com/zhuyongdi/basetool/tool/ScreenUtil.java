@@ -4,11 +4,16 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.os.Build;
 import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+
+import com.zhuyongdi.basetool.bean.StatusBarStyle;
 
 /**
  * 屏幕工具类
@@ -111,6 +116,32 @@ public class ScreenUtil {
             activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
 
+    }
+
+    //设置沉浸式状态栏
+    public static void setImmersiveStatusBar(Activity context, View view, int color, StatusBarStyle style) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            View decorView = context.getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            context.getWindow().setStatusBarColor(Color.TRANSPARENT);
+            switch (style) {
+                case TEXT:
+                    view.getLayoutParams().height = getStatusBarHeight(context);
+                    view.setLayoutParams(view.getLayoutParams());
+                    view.setBackgroundColor(color);
+                    break;
+                case IMAGE:
+                    if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                        ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+                        p.setMargins(0, 50, 0, 0);
+                        view.requestLayout();
+                    }
+                    break;
+
+            }
+        }
     }
 
     /**

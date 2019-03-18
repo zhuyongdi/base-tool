@@ -1,4 +1,4 @@
-package com.zhuyongdi.basetool.function.utils;
+package com.zhuyongdi.basetool.function.screen_adaption.utils;
 
 import android.content.Context;
 

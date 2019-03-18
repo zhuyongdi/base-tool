@@ -1,8 +1,8 @@
-package com.zhuyongdi.basetool.function.conversion;
+package com.zhuyongdi.basetool.function.screen_adaption.conversion;
 
 import android.view.View;
 
-import com.zhuyongdi.basetool.function.loadviewhelper.AbsLoadViewHelper;
+import com.zhuyongdi.basetool.function.screen_adaption.loadviewhelper.AbsLoadViewHelper;
 
 /**
  * Only adapter width/height/padding/margin

@@ -1,12 +1,12 @@
-package com.zhuyongdi.basetool.function.loadviewhelper;
+package com.zhuyongdi.basetool.function.screen_adaption.loadviewhelper;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.zhuyongdi.basetool.function.utils.ViewUtils;
-import com.zhuyongdi.basetool.function.utils.dp2pxUtils;
+import com.zhuyongdi.basetool.function.screen_adaption.utils.ViewUtils;
+import com.zhuyongdi.basetool.function.screen_adaption.utils.dp2pxUtils;
 
 /**
  * Created by yatoooon on 2018/2/6.

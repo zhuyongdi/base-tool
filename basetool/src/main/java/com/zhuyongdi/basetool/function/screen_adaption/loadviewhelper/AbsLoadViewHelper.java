@@ -1,12 +1,12 @@
-package com.zhuyongdi.basetool.function.loadviewhelper;
+package com.zhuyongdi.basetool.function.screen_adaption.loadviewhelper;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zhuyongdi.basetool.function.conversion.IConversion;
-import com.zhuyongdi.basetool.function.conversion.SimpleConversion;
-import com.zhuyongdi.basetool.function.utils.ActualScreen;
+import com.zhuyongdi.basetool.function.screen_adaption.conversion.IConversion;
+import com.zhuyongdi.basetool.function.screen_adaption.conversion.SimpleConversion;
+import com.zhuyongdi.basetool.function.screen_adaption.utils.ActualScreen;
 
 /**
  * Created by yosemite on 2018/3/21.

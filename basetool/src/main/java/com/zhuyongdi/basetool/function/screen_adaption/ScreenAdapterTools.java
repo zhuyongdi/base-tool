@@ -1,11 +1,11 @@
-package com.zhuyongdi.basetool.function;
+package com.zhuyongdi.basetool.function.screen_adaption;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-import com.zhuyongdi.basetool.function.loadviewhelper.AbsLoadViewHelper;
-import com.zhuyongdi.basetool.function.loadviewhelper.LoadViewHelper;
+import com.zhuyongdi.basetool.function.screen_adaption.loadviewhelper.AbsLoadViewHelper;
+import com.zhuyongdi.basetool.function.screen_adaption.loadviewhelper.LoadViewHelper;
 
 /**
  * Created by yatoooon on 2018/2/6.

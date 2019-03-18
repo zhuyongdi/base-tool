@@ -1,4 +1,4 @@
-package com.zhuyongdi.basetool.function.loadviewhelper;
+package com.zhuyongdi.basetool.function.screen_adaption.loadviewhelper;
 
 import android.view.View;
 
