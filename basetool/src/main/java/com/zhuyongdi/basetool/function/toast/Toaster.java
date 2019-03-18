@@ -19,7 +19,7 @@ public class Toaster {
     private static ContextHolder holder;
     private static Toast toast;
 
-    private static void init(Context context) {
+    public static void init(Context context) {
         holder = new ContextHolder(context);
     }
 
