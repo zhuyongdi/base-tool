@@ -12,12 +12,11 @@ import android.widget.Toast;
  * Toaster
  * Created by ZhuYongdi on 2019/3/18.
  */
-@SuppressLint("StaticFieldLeak")
+@SuppressLint({"StaticFieldLeak", "ShowToast"})
 public class Toaster {
 
     private static final String TAG = "Toaster";
     private static ContextHolder holder;
-    private static Toast toast;
 
     public static void init(Context context) {
         holder = new ContextHolder(context);
@@ -31,12 +30,9 @@ public class Toaster {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @SuppressLint("ShowToast")
             public void run() {
-                if (toast == null) {
-                    toast = Toast.makeText(holder.context, resId, Toast.LENGTH_SHORT);
-                } else {
-                    toast.setText(resId);
-                }
-                toast.setGravity(Gravity.CENTER, 0, 0);
+                Toast toast = Toast.makeText(holder.context, resId, Toast.LENGTH_SHORT);
+                toast.setText(resId);
+                toast.setGravity(Gravity.BOTTOM, 0, 100);
                 toast.show();
             }
         });
@@ -48,14 +44,10 @@ public class Toaster {
             return;
         }
         new Handler(Looper.myLooper()).post(new Runnable() {
-            @SuppressLint("ShowToast")
             public void run() {
-                if (toast == null) {
-                    toast = Toast.makeText(holder.context, text, Toast.LENGTH_SHORT);
-                } else {
-                    toast.setText(text);
-                }
-                toast.setGravity(Gravity.CENTER, 0, 0);
+                Toast toast = Toast.makeText(holder.context, text, Toast.LENGTH_SHORT);
+                toast.setText(text);
+                toast.setGravity(Gravity.BOTTOM, 0, 100);
                 toast.show();
             }
         });

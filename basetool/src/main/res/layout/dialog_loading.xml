@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180px"
-    android:layout_height="180px"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="220px"
+    android:layout_height="220px"
     android:layout_centerInParent="true"
-    android:background="@drawable/dialog_bg_shape"
-    android:orientation="vertical">
+    android:background="@drawable/dialog_bg_shape_loading"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:ignore="PxUsage,HardcodedText">
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -14,13 +17,13 @@
         android:layout_marginTop="20px" />
 
     <TextView
-        android:id="@+id/hint_tv"
+        android:id="@+id/tv_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10px"
+        android:includeFontPadding="false"
         android:text="加载中..."
         android:textColor="#9a9b98"
-        android:textSize="26px" />
-
+        android:textSize="30px" />
 </LinearLayout>

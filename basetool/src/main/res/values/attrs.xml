@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- SmartRefresh -->
+    <attr name="layout_srlSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+        <enum name="FixedFront" value="3" /><!--固定在前面-->
+        <enum name="MatchLayout" value="4" /><!--填满布局-->
+    </attr>
+    <attr name="srlAccentColor" format="color" />
+    <attr name="srlClassicsSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+    </attr>
+    <attr name="srlDrawableArrow" format="reference" />
+    <attr name="srlDrawableArrowSize" format="dimension" />
+    <attr name="srlDrawableMarginRight" format="dimension" />
+    <attr name="srlDrawableProgress" format="reference" />
+    <attr name="srlDrawableProgressSize" format="dimension" />
+    <attr name="srlDrawableSize" format="dimension" />
+    <attr name="srlEnableHorizontalDrag" format="boolean" />
+    <attr name="srlFinishDuration" format="integer" />
+    <attr name="srlPrimaryColor" format="color" />
+    <attr name="srlTextFailed" format="string" />
+    <attr name="srlTextFinish" format="string" />
+    <attr name="srlTextLoading" format="string" />
+    <attr name="srlTextNothing" format="string" />
+    <attr name="srlTextPulling" format="string" />
+    <attr name="srlTextRefreshing" format="string" />
+    <attr name="srlTextRelease" format="string" />
+    <attr name="srlTextSecondary" format="string" />
+    <attr name="srlTextSizeTime" format="dimension" />
+    <attr name="srlTextSizeTitle" format="dimension" />
+    <attr name="srlTextUpdate" format="string" />
+
+</resources>

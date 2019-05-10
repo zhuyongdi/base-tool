@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * 流式布局
- * Created by ZhuYongdi on 2019/1/4.
+ * Created by ZhuYongdi on 2019/4/8.
  */
 public class FlowLayout extends ViewGroup {
 
@@ -41,8 +41,8 @@ public class FlowLayout extends ViewGroup {
      * 设置Margins
      */
     public void setMargins(int centerLR, int centerTB) {
-        this.mCenterLR = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, centerLR, getResources().getDisplayMetrics());
-        this.mCenterTB = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, centerTB, getResources().getDisplayMetrics());
+        this.mCenterLR = centerLR;
+        this.mCenterTB = centerTB;
         invalidate();
     }
 
@@ -145,4 +145,5 @@ public class FlowLayout extends ViewGroup {
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new MarginLayoutParams(getContext(), attrs);
     }
+
 }

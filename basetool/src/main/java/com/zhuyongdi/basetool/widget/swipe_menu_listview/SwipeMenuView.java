@@ -1,29 +1,24 @@
 package com.zhuyongdi.basetool.widget.swipe_menu_listview;
 
-import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.List;
 
 /**
  * @author baoyz
- * @date 2014-8-23
  */
 public class SwipeMenuView extends LinearLayout implements OnClickListener {
 
-    private SwipeMenuListView mListView;
     private SwipeMenuLayout mLayout;
     private SwipeMenu mMenu;
     private OnSwipeItemClickListener onItemClickListener;
     private int position;
+    private LayoutParams lp;
 
     public int getPosition() {
-        return position;
+        return this.position;
     }
 
     public void setPosition(int position) {
@@ -32,73 +27,31 @@ public class SwipeMenuView extends LinearLayout implements OnClickListener {
 
     public SwipeMenuView(SwipeMenu menu, SwipeMenuListView listView) {
         super(menu.getContext());
-        mListView = listView;
-        mMenu = menu;
-        List<SwipeMenuItem> items = menu.getMenuItems();
+        this.setOrientation(LinearLayout.HORIZONTAL);
+        this.lp = new LayoutParams(-2, -1);
+        this.mMenu = menu;
+        List<View> items = menu.getMenuViews();
         int id = 0;
-        for (SwipeMenuItem item : items) {
-            addItem(item, id++);
+        for (View item : items) {
+            addItem(item, id);
+            id++;
         }
     }
 
-    private void addItem(SwipeMenuItem item, int id) {
-        LayoutParams params;
-        if (item.getChildView() != null) {
-            params = new LayoutParams(-2, -1);
-        } else {
-            params = new LayoutParams(item.getWidth(), -1);
+    private void addItem(View item, int id) {
+        item.setId(id);
+        if (item.getLayoutParams() == null) {
+            item.setLayoutParams(this.lp);
         }
-        LinearLayout parent = new LinearLayout(getContext());
-        parent.setId(id);
-        parent.setGravity(Gravity.CENTER);
-        parent.setOrientation(LinearLayout.VERTICAL);
-        parent.setLayoutParams(params);
-        parent.setBackgroundDrawable(item.getBackground());
-        parent.setOnClickListener(this);
-        addView(parent);
-
-        if (item.getIcon() != null) {
-            parent.addView(createIcon(item));
-        }
-        if (!TextUtils.isEmpty(item.getTitle())) {
-            parent.addView(createTitle(item));
-        }
-        if (item.getChildView() != null) {
-            parent.addView(createChildView(item));
-        }
-    }
-
-    private ImageView createIcon(SwipeMenuItem item) {
-        ImageView iv = new ImageView(getContext());
-        iv.setImageDrawable(item.getIcon());
-        return iv;
-    }
-
-    private TextView createTitle(SwipeMenuItem item) {
-        TextView tv = new TextView(getContext());
-        tv.setText(item.getTitle());
-        tv.setGravity(Gravity.CENTER);
-        tv.setTextSize(item.getTitleSize());
-        tv.setTextColor(item.getTitleColor());
-        return tv;
-    }
-
-    private View createChildView(SwipeMenuItem item) {
-        View childView = item.getChildView();
-        LayoutParams lp = new LayoutParams(-2, -1);
-        childView.setLayoutParams(lp);
-        return item.getChildView();
+        item.setOnClickListener(this);
+        addView(item);
     }
 
     @Override
     public void onClick(View v) {
-        if (onItemClickListener != null && mLayout.isOpen()) {
-            onItemClickListener.onItemClick(this, mMenu, v.getId());
+        if (this.onItemClickListener != null && this.mLayout.isOpen()) {
+            this.onItemClickListener.onItemClick(this, mMenu, v.getId());
         }
-    }
-
-    public OnSwipeItemClickListener getOnSwipeItemClickListener() {
-        return onItemClickListener;
     }
 
     public void setOnSwipeItemClickListener(OnSwipeItemClickListener onItemClickListener) {
@@ -109,7 +62,7 @@ public class SwipeMenuView extends LinearLayout implements OnClickListener {
         this.mLayout = mLayout;
     }
 
-    public static interface OnSwipeItemClickListener {
+    public interface OnSwipeItemClickListener {
         void onItemClick(SwipeMenuView view, SwipeMenu menu, int index);
     }
 }

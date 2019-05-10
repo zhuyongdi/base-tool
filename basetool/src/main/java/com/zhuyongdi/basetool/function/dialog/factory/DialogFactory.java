@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 
 import com.zhuyongdi.basetool.function.dialog.product.LoadingDialog;
+import com.zhuyongdi.basetool.function.dialog.product.PermissionDialog;
+
 
 /**
  * Dialog工厂
@@ -13,7 +15,8 @@ public class DialogFactory {
 
     public enum DialogType {
 
-        DIALOG_LOADING
+        DIALOG_LOADING,
+        DIALOG_PERMISSION
 
     }
 
@@ -36,6 +39,8 @@ public class DialogFactory {
             case DIALOG_LOADING:
                 dialog = new LoadingDialog(context);
                 break;
+            case DIALOG_PERMISSION:
+                dialog = new PermissionDialog(context);
         }
         return dialog;
     }

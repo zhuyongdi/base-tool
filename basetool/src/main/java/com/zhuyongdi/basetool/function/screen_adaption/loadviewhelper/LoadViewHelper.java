@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.zhuyongdi.basetool.function.screen_adaption.utils.ViewUtils;
-import com.zhuyongdi.basetool.function.screen_adaption.utils.dp2pxUtils;
+
 
 /**
  * Created by yatoooon on 2018/2/6.
@@ -76,28 +76,6 @@ public class LoadViewHelper extends AbsLoadViewHelper {
     @Override
     public int loadCustomAttrValue(int px) {
         return setValue(px);
-    }
-
-
-    private int setValue(int value) {
-        if (value == 0) {
-            return 0;
-        } else if (value == 1) {
-            return 1;
-        }
-        return (int) calculateValue(value);
-    }
-
-    private float calculateValue(float value) {
-        if ("px".equals(unit)) {
-            return value * ((float) actualWidth / (float) designWidth);
-        } else if ("dp".equals(unit)) {
-            int dip = dp2pxUtils.px2dip(actualDensity, value);
-            value = ((float) designDpi / 160) * dip;
-            return value * ((float) actualWidth / (float) designWidth);
-
-        }
-        return 0;
     }
 
 

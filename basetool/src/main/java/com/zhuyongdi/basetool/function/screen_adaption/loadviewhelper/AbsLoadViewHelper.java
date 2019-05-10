@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.zhuyongdi.basetool.function.screen_adaption.conversion.IConversion;
 import com.zhuyongdi.basetool.function.screen_adaption.conversion.SimpleConversion;
 import com.zhuyongdi.basetool.function.screen_adaption.utils.ActualScreen;
+import com.zhuyongdi.basetool.function.screen_adaption.utils.dp2pxUtils;
 
 /**
  * Created by yosemite on 2018/3/21.
@@ -67,4 +68,26 @@ public abstract class AbsLoadViewHelper implements ILoadViewHelper {
         }
 
     }
+
+    public int setValue(int value) {
+        if (value == 0) {
+            return 0;
+        } else if (value == 1) {
+            return 1;
+        }
+        return (int) calculateValue(value);
+    }
+
+    float calculateValue(float value) {
+        if ("px".equals(unit)) {
+            return value * ((float) actualWidth / (float) designWidth);
+        } else if ("dp".equals(unit)) {
+            int dip = dp2pxUtils.px2dip(actualDensity, value);
+            value = ((float) designDpi / 160) * dip;
+            return value * ((float) actualWidth / (float) designWidth);
+
+        }
+        return 0;
+    }
+
 }

@@ -72,16 +72,16 @@ public class SwipeMenuListView extends ListView implements NestedScrollingChild 
     @Override
     public void setAdapter(ListAdapter adapter) {
         super.setAdapter(new SwipeMenuAdapter(getContext(), adapter) {
+
             @Override
-            public void createMenu(SwipeMenu menu) {
+            public void createMenu(SwipeMenu menu, Context context) {
                 if (mMenuCreator != null) {
-                    mMenuCreator.create(menu);
+                    mMenuCreator.create(menu, context);
                 }
             }
 
             @Override
-            public void onItemClick(SwipeMenuView view, SwipeMenu menu,
-                                    int index) {
+            public void onItemClick(SwipeMenuView view, SwipeMenu menu, int index) {
                 boolean flag = false;
                 if (mOnMenuItemClickListener != null) {
                     flag = mOnMenuItemClickListener.onMenuItemClick(
@@ -91,6 +91,7 @@ public class SwipeMenuListView extends ListView implements NestedScrollingChild 
                     mTouchView.smoothCloseMenu();
                 }
             }
+
         });
     }
 
@@ -255,17 +256,17 @@ public class SwipeMenuListView extends ListView implements NestedScrollingChild 
         mOnMenuStateChangeListener = onMenuStateChangeListener;
     }
 
-    public static interface OnMenuItemClickListener {
+    public interface OnMenuItemClickListener {
         boolean onMenuItemClick(int position, SwipeMenu menu, int index);
     }
 
-    public static interface OnSwipeListener {
+    public interface OnSwipeListener {
         void onSwipeStart(int position);
 
         void onSwipeEnd(int position);
     }
 
-    public static interface OnMenuStateChangeListener {
+    public interface OnMenuStateChangeListener {
         void onMenuOpen(int position);
 
         void onMenuClose(int position);

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:ignore="PxUsage">
+
+    <include layout="@layout/layout_head" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/bottom_rl"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:layout_alignParentBottom="true"
+            android:background="#333333">
+
+            <RelativeLayout
+                android:id="@+id/rl_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="120px"
+                android:gravity="center"
+                android:paddingLeft="40px"
+                android:paddingRight="40px">
+
+                <TextView
+                    android:id="@+id/tv_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:text="所有图片"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40px" />
+
+                <ImageView
+                    android:layout_width="25px"
+                    android:layout_height="25px"
+                    android:layout_alignBottom="@id/tv_menu"
+                    android:layout_marginStart="3px"
+                    android:layout_marginLeft="3px"
+                    android:layout_toEndOf="@id/tv_menu"
+                    android:layout_toRightOf="@id/tv_menu"
+                    android:background="@mipmap/icon_tri"
+                    android:contentDescription="@null" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_preView"
+                android:layout_width="wrap_content"
+                android:layout_height="120px"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="40px"
+                android:paddingRight="40px">
+
+                <TextView
+                    android:id="@+id/tv_preView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="预览"
+                    android:textColor="#FFFFFF"
+                    android:textSize="40px" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

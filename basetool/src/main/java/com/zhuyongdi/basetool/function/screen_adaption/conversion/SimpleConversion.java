@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.zhuyongdi.basetool.function.screen_adaption.loadviewhelper.AbsLoadViewHelper;
 
+
 /**
  * Only adapter width/height/padding/margin
  * Created by zhangyuwan0 on 2018/3/21.
